@@ -4,14 +4,23 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
 class ExampleUnitTest {
+
+    val user1 = UserData("Danny", 19, "gmail")
+    val user2 = UserData("Peter", 20, "gmail")
+    val user3 = UserData("Vanya", 13, "gmail")
+    val user4 = UserData("Volodya", 77, "gmail")
+
+    val users = listOf(user1, user2, user3, user4);
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun start() {
+        print(users.sortUsers())
+    }
+
+    // Сортировка пользователей по возрасту
+    private fun List<UserData>.sortUsers(): List<UserData> {
+        return this.sortedBy { it.age }
     }
 }
